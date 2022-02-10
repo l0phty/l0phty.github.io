@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>AR Model Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@1.5.0/dist/model-viewer.min.js"></script>
+    <style>
+        body, model-viewer {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0:
+          outline: none;
+        }
+        #annotation{
+          background-color: #ada996;
+          opacity: 0.60;
+          position: absolute;
+          transform: translate(10px, 10px);
+          border-radius: 10px;
+          padding: 10px;
+          font-family: Helvetica, sans-serif;
+          font-color: #333333;
+          font-size: 0.8em;
+          font-weight: normal; "
+        }
+        :not(:defined) > * {
+          display: none;
+        }
+  </style>
+  </head>
+<body>
+  <div class="demo" style="background: linear-gradient(#333, #ada996); overflow-x: hidden;">
+  <model-viewer
+    id="model-viewer"
+    camera-controls
+    interaction-policy="allow-when-focused"
+    skybox-image="assets/hdr/004.hdr"
+    environment-image="assets/hdr/004.hdr"
+    data-js-focus-visible
+    shadow-intensity="1"
+    src="assets/exported/scene.gltf"
+    ios-src="assets/exported/scene.usdz"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto"
+    auto-rotate rotation-per-second="10deg"
+    style="background-color: unset;">
+    <button id="ar" slot="ar-button" style="background-color: white; border: none; position: fixed; 
+      font-size: 50px;
+      bottom: 50px;
+      right: 50px;
+      border-radius: 10px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-weight: normal; ">
+         AR
+    </button>
+        <div id="annotation">
+      Name: Paqui<br />
+      Seed: 39233734851044373105<br />
+      World size: 25 (S)<br />
+      Tier: Unique<br />
+      Rarity: 84<br />
+      Status: Inhabited<br />
+      Biome: Coniferous forest<br />
+      Sealife: Penguin<br />
+      Mountain: Obsidian<br />
+      Airship: present<br />
+      Dock: present<br />
+      Waterfall: present<br />
+      Time: sunset<br />
+      Background: Summit<br />
+    </div>
+  </model-viewer>
+</body>
+  <script type="text/javascript">
+    if ( window.location !== window.parent.location ) {
+      document.getElementById("ar").style.display = "none";
+    }
+  </script> 
+</html>
